@@ -1,0 +1,62 @@
+<!-- 
+    History quiz
+
+    Author: WattoX00
+    Date:   19/05/2024
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Történelem kvíz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="toggleMenuButton">&#9776;</button>
+        <nav id="menuContainer">
+            <br><br>
+            <nav id="menu"></nav>
+        </nav>
+    </header>
+    
+    <main>
+
+        <div class="container">
+            <div id="content">
+
+                <h3 class="Title">Történelem kvíz</h3>
+                <div id="question"></div>
+                <input type="text" id="answerInput" autocomplete="off" placeholder="Írja be ide a választ...">
+                <button id="showAnswer" class="button">Mutasd a választ</button>
+                <button id="nextQuestion" class="button">Következő kérdés</button>
+                <div id="description"></div>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <iframe id="youtubeVideo" width="560" height="315" src="https://www.youtube.com/embed/9yXZ9LO5Wrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p id="modalAnswer"></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <div id="footerContainer" class="active">
+        <div class="footer-section">
+            <p>Kattintson a dobozra az elrejtéséhez</p>
+            <br>
+            <p>Minden jog fenntartva &copy; 2024</p>
+        </div>
+        <div class="footer-section">
+            <p>Support Me:</p>
+            <p><a href="https://www.paypal.com/paypalme/wattox" target="_blank">PayPal</a></p>
+        </div>
+    </div>
+    <div id="footerArrow">&#x25BC;</div>
+    <textarea id="clipboardTextArea" style="position: absolute; left: -9999px;"></textarea>
+    <script src="script.js"></script>
+</body>
+</html>
