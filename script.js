@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isFooterVisible = true;
 
     window.onload = function() {
-        const videoUrl = 'https://www.youtube.com/embed/cFNMfjA8-sk';
+        const videoUrl = 'https://youtu.be/9yXZ9LO5Wrc?si=Ka_4CG-uzVf3TaWM';
         const iframeCode = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         const modal = document.getElementById('myModal');
         const modalAnswer = document.getElementById('modalAnswer');
