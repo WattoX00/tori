@@ -15,9 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
 
-    window.onload = () => {
+    window.onload = function() {
+        const videoUrl = 'https://www.youtube.com/embed/cFNMfjA8-sk';
+        const iframeCode = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         const modal = document.getElementById('myModal');
+        const modalAnswer = document.getElementById('modalAnswer');
+        modalAnswer.innerHTML = `${iframeCode}`;
         modal.style.display = 'block';
+
+        const content = document.getElementById('content');
+        content.style.display = 'none'
     };
     footerArrow.addEventListener('mouseenter', function () {
         isFooterVisible = !isFooterVisible;
@@ -96,10 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 currentQuestionIndex = 0;
                 displayQuestion();
+                menuContainer.classList.toggle('show');
             });
     }
 
     function displayQuestion() {
+        const content = document.getElementById('content');
+        content.style.display = 'block'
         if (currentQuestionIndex < currentFileContent.length) {
             const { question } = currentFileContent[currentQuestionIndex];
             questionDiv.textContent = question;
@@ -107,8 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             descriptionDiv.textContent = '';
         } else {
             questionDiv.textContent = 'Kvíz befejezve!';
-            answerInput.style.display = 'none';
-            nextQuestionButton.style.display = 'none';
+            menuContainer.classList.toggle('show');
         }
     }
 
@@ -119,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const correctAnswer = answer.split('-')[0];
             const userAnswerFirstPart = userAnswer.split('-')[0];
             if (userAnswerFirstPart.toLowerCase() === correctAnswer.toLowerCase() || userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-                descriptionDiv.textContent = description;
+                descriptionDiv.textContent = answer+", "+description;
             } else {
-                descriptionDiv.textContent = 'Incorrect! Try again.';
+                descriptionDiv.textContent = 'Helytelen! Próbáld újra.';
             }
         }
     });
@@ -143,13 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function showModalAnswer(answer) {
         modal.style.display = 'block';
         modalAnswer.textContent = answer;
-    
-        // Copy answer to clipboard
         const clipboardTextArea = document.getElementById('clipboardTextArea');
         clipboardTextArea.value = answer;
         clipboardTextArea.select();
         document.execCommand('copy');
     }
+
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
             modal.style.display = 'none';
@@ -178,13 +186,4 @@ document.addEventListener('DOMContentLoaded', () => {
         footerContainer.classList.toggle('active', isFooterVisible);
         footerArrow.classList.toggle('hidden', isFooterVisible);
     }
-    function showModalAnswer(answer) {
-        modal.style.display = 'block';
-        modalAnswer.textContent = answer;
-        const clipboardTextArea = document.getElementById('clipboardTextArea');
-        clipboardTextArea.value = answer;
-        clipboardTextArea.select();
-        document.execCommand('copy');
-    }
-
 });
