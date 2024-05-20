@@ -186,4 +186,15 @@ document.addEventListener('DOMContentLoaded', () => {
         footerContainer.classList.toggle('active', isFooterVisible);
         footerArrow.classList.toggle('hidden', isFooterVisible);
     }
+    const toggleThemeButton = document.getElementById('toggleThemeButton');
+
+    toggleThemeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        if (document.body.classList.contains('dark-theme')) {
+            toggleThemeButton.textContent = '☀️';
+        } else {
+            toggleThemeButton.textContent = '🌙';
+        }
+    });
+    
 });
