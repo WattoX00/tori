@@ -25,7 +25,7 @@ body {
 
 #toggleThemeButton {
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     top: 10px;
     right: 10px;
     font-size: 24px;
