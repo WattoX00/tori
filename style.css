@@ -287,9 +287,22 @@ body.dark-theme {
 
 .footer-section a {
     text-decoration: none;
-    color: #007bff;
+    color: rgb(77, 243, 255);
     font-size: 35px;
 }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
 @media only screen and (max-width: 768px) {
     .modal-content {
         max-width: 100%;

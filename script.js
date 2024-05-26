@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerContainer = document.getElementById('footerContainer');
     const footerArrow = document.getElementById('footerArrow');
     let isFooterVisible = true;
-
+    var elements = document.querySelectorAll('.fade-target');
+    
+    elements.forEach(function(element) {
+      element.classList.add('fade-in');
+    });
     window.onload = function() {
         const videoUrl = 'https://www.youtube.com/embed/9yXZ9LO5Wrc';
         const iframeCode = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
